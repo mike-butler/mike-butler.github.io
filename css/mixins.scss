@@ -1,0 +1,46 @@
+@import "variables.scss";
+
+@mixin full-screen-section($image, $overlay-color, $text-color: $base-text-color){
+    background: url($image) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: 100%;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    color: $text-color;
+    margin: 0;
+    padding: 0;
+    box-shadow: 0px 0px 0px 2048px $overlay-color inset;
+    overflow: hidden;
+    min-height: 400px;
+}
+
+@mixin full-section-horizontal-padding(){
+    padding: 0 5rem 0 3rem;
+    
+    @media screen and (min-width: $tablet-min-width) {
+        padding: 0 10%;
+    }
+    @media screen and (min-width: $desktop-mid-width) {
+        padding: 0 15%;
+    }
+    @media screen and (min-width: $desktop-mid-width) {
+        padding: 0 20%;
+    }
+
+}
+
+$Placeholder-Selectors: ();
+
+@mixin body-base {
+    font-weight: normal;
+    @include tablet($tablet-min-width);
+}
+@mixin tablet($width: $tablet-min-width) {
+    @media screen and (min-width: $width) {
+        font-weight: 300;
+    }
+}

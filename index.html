@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/styles.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,300italic,300,100italic,100,400italic,700,700italic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+    <script src="js/lib/js/jquery.ajax-cross-origin.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>    
+</head>
+<body>
+    <nav class="mobile nav-menu">
+        <a class="mobile-menu" href="#"><span class="all-caps">Menu</span> <span class="fa fa-navicon"></span></a>
+    </nav>
+    <nav class="mobile menu-list">
+        <ul>
+            <li>
+                <a class="all-caps" href="#" data-section="home">Home</a>
+            </li>
+            <li>
+                <a class="all-caps" href="#" data-section="about">About</a>
+            </li>
+            <li>
+                <a class="all-caps" href="#" data-section="projects">Projects</a>
+            </li>
+            <li>
+                <a class="all-caps" href="#" data-section="footer">Contact</a>
+            </li>
+        </ul>
+    </nav>
+    <nav class="page-nav-indicators">
+        <ul class="unstyled-list page-nav-indicator-list">
+            <li class="template page-nav-indicator">
+                <a href="#"><span class="circle"></span></a>
+            </li>
+        </ul>
+    </nav>
+    <section id="home" data-section="home" class="main-section">
+        <section class="section-content">
+            <header>
+                <h1 class="all-caps">I am <span>Mike Butler</span></h1>
+                <h5><span>Front End Web Developer</span></h5>
+            </header>
+            <footer>
+            <button class="cta-button all-caps see-my-work" data-section="projects">See my work</button>
+            </footer>
+        </section>
+    </section>
+    <section id="about" data-section="about" class="about">
+        <section class="section-content">
+            <header>
+                <h1>About</h1>
+            </header>
+            <p>Hi I'm Mike, a web developer adept at applying front end technology to produce pixel-perfect results from UX design wireframes/mockups and create responsive mobile web applications that look and behave beautifully across devices. </p>
+            <p>I am currently working with a cool new startup in the Seattle area helping to define and build their web presence. Prior to that, I worked at C Space on their proprietary global online community platform, developing in the front and middle tiers on the Microsoft stack. </p>
+            <p>When I'm not working on a website, I have to stay active cycling, or running to keep up with three active kids.  As an Italian foody, I enjoy baking bread and applying engineering precision to making pizza dough. </p>        
+        </section>
+    </section>
+    <section id="projects" data-section="projects" class="projects">
+        <section class="section-content">
+            <h1>Projects</h1>
+            <p>Because my work at C Space involved a proprietary community platform, I am unable to post work samples.  I'll be posting information about same UI elements that I've created after leaving the company as a way to represent my capabilities.</p>
+            <p>Each entry will have a short description of the technical challenge this work solves, along with either a demo or photos representing the output.</p>
+        </section>
+    </section>
+    <footer id="footer" class="page-footer" data-section="footer">
+        <section class="section-content">
+            <section class="left-content">
+                <h3 class="all-caps">Mike Butler</h3>
+                <h5><span>Front End Web Developer</span></h5>
+                <ul class="social-media">
+                    <li><a href="#"><span class="fa fa-linkedin-square"></span></a></li>
+                    <li><a href="#"><span class="fa fa-twitter-square"></span></a></li>
+                    <li><a href="#"><span class="fa fa-facebook-square"></span></a></li>
+                </ul>               
+            </section>
+            <section class="right-content">
+                <ul>
+                    <li><a class="all-caps" href="mailto:mikeb10550@gmail.com">contact</a></li>
+                    <li><a class="all-caps hide-on-mobile" href="#" data-section="projects">projects</a></li>
+                    <li><a class="all-caps hide-on-mobile" href="#" data-section="about">about</a></li>
+                    <li><a class="all-caps hide-on-mobile" href="#" data-section="home">home</a></li>
+                </ul>
+            </section>
+            <section class="copyright-line smaller">
+                © 2016 Mike Butler, All rights reserved
+            </section>
+        </section>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="js/app.projects.js"></script>
+    <script src="js/app.main.js"></script>
+    <script type="text/javascript">
+        app.main.init();
+        //app.projects.init();
+    </script>
+</body>
+</html>

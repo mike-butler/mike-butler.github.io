@@ -1,0 +1,17 @@
+$base-text-color: #343434;
+$highlight-color: #07b0ff;
+
+$base-link-text-color: $highlight-color;
+$base-hover-link-text-color: $highlight-color;
+
+//responsiveness
+$mobile-mid-width: 600px;
+$mobile-max-width: 768px;
+//tablet
+$tablet-min-width: 769px;
+$tablet-mid-width: 960px;
+$tablet-max-width: 1024px;
+//desktop
+$desktop-min-width: 1025px;
+$desktop-mid-width: 1200px;
+$desktop-max-width: 1600px;

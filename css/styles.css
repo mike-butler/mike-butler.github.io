@@ -1,0 +1,539 @@
+/* line 4, styles.scss */
+html, body {
+  box-sizing: border-box;
+  height: 100%;
+  min-width: 100%;
+}
+
+/* line 9, styles.scss */
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* line 12, styles.scss */
+body {
+  overflow-x: hidden;
+  font-family: Lato, 'helvetica nueu', helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  color: #343434;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  background-color: #353535;
+  font-weight: normal;
+}
+@media screen and (min-width: 769px) {
+  /* line 12, styles.scss */
+  body {
+    font-weight: 300;
+  }
+}
+
+/* line 24, styles.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+}
+
+/* line 27, styles.scss */
+h1 {
+  font-weight: normal;
+}
+
+/* line 30, styles.scss */
+.page-nav-indicators {
+  display: none;
+  position: fixed;
+  top: calc((50%) - 4px);
+  right: 32px;
+  z-index: 2;
+}
+/* line 36, styles.scss */
+.page-nav-indicators .page-nav-indicator {
+  padding: .4rem;
+}
+@media screen and (min-width: 769px) {
+  /* line 30, styles.scss */
+  .page-nav-indicators {
+    display: block;
+  }
+}
+
+/* line 45, styles.scss */
+.mobile.nav-menu {
+  position: fixed;
+  top: 1rem;
+  right: 0px;
+  z-index: 2;
+  font-weight: normal;
+  padding: 16px;
+}
+/* line 52, styles.scss */
+.mobile.nav-menu a:link, .mobile.nav-menu a:visited {
+  color: #07b0ff;
+  text-decoration: none;
+}
+/* line 56, styles.scss */
+.mobile.nav-menu span {
+  opacity: 1;
+  transition: opacity 500ms 'ease-in-out';
+}
+@media screen and (min-width: 769px) {
+  /* line 45, styles.scss */
+  .mobile.nav-menu {
+    display: none;
+  }
+}
+
+/* line 66, styles.scss */
+.mobile.menu-list {
+  position: relative;
+  display: none;
+}
+/* line 69, styles.scss */
+.mobile.menu-list ul {
+  background-color: #353535;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate3d(0, 0, 0);
+  height: auto;
+  width: 240px;
+  z-index: 0;
+}
+/* line 81, styles.scss */
+.mobile.menu-list ul a:link, .mobile.menu-list ul a:visited {
+  color: #07b0ff;
+  text-decoration: none;
+}
+/* line 85, styles.scss */
+.mobile.menu-list ul a:hover, .mobile.menu-list ul a:active {
+  color: #fff;
+}
+/* line 89, styles.scss */
+.mobile.menu-list ul li {
+  text-align: center;
+  margin: 0;
+  padding: 5px;
+  transition: all 500ms 'swing';
+  border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+}
+/* line 96, styles.scss */
+.mobile.menu-list ul li:hover a {
+  color: #fff;
+}
+@media screen and (min-width: 768px) {
+  /* line 66, styles.scss */
+  .mobile.menu-list {
+    display: none;
+  }
+}
+
+/* line 112, styles.scss */
+.mobile.menu-list {
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+}
+/* line 115, styles.scss */
+.animating .mobile.menu-list, .menu-visible .mobile.menu-list {
+  display: block;
+}
+
+/* line 121, styles.scss */
+.main-section, .about, .projects, .nav-menu {
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  z-index: 1;
+}
+/* line 124, styles.scss */
+.animating .main-section, .animating .about, .animating .projects, .animating .nav-menu {
+  transition: transform 500ms ease-in-out;
+  -webkit-transition: -webkit-transform 500ms ease-in-out;
+}
+/* line 128, styles.scss */
+.animating.left .main-section, .animating.left .about, .animating.left .projects, .animating.left .nav-menu {
+  transform: translate3d(-240px, 0, 0);
+  -webkit-transform: translate3d(-240px, 0, 0);
+}
+/* line 132, styles.scss */
+.animating.right .main-section, .animating.right .about, .animating.right .projects, .animating.right .nav-menu {
+  transform: translate3d(240px, 0, 0);
+  -webkit-transform: translate3d(240px, 0, 0);
+}
+/* line 136, styles.scss */
+.menu-visible .main-section, .menu-visible .about, .menu-visible .projects, .menu-visible .nav-menu {
+  right: 240px;
+}
+
+/* line 143, styles.scss */
+.mobile.nav-menu {
+  z-index: 2;
+}
+/* line 144, styles.scss */
+.menu-visible .mobile.nav-menu {
+  right: 240px;
+}
+
+/* line 152, styles.scss */
+.main-section {
+  background: url("/images/laptop-notebook-clean-hero.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: 100%;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0px 0px 0px 2048px rgba(0, 0, 0, 0.55) inset;
+  overflow: hidden;
+  min-height: 400px;
+}
+/* line 154, styles.scss */
+.main-section .section-content {
+  width: 100%;
+}
+/* line 156, styles.scss */
+.main-section .section-content h1 {
+  position: absolute;
+  left: 0;
+  top: calc((30%) - 35px);
+  width: 100%;
+  text-align: center;
+  font-size: 3.5rem;
+  font-weight: 400;
+}
+/* line 164, styles.scss */
+.main-section .section-content h1 span {
+  color: #07b0ff;
+}
+/* line 168, styles.scss */
+.main-section .section-content h5 {
+  position: absolute;
+  left: 0;
+  top: calc((57%) - 1px);
+  width: 100%;
+  text-align: center;
+}
+/* line 174, styles.scss */
+.main-section .section-content h5 span {
+  font-weight: 300;
+  font-size: 1.0rem;
+  border-top: solid 3px #aaa;
+  padding: .2rem 1rem 0;
+}
+/* line 181, styles.scss */
+.main-section .section-content footer {
+  position: absolute;
+  top: calc((80%) - 5px);
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+@media screen and (min-width: 769px) {
+  /* line 189, styles.scss */
+  .main-section .section-content h1 {
+    top: calc((35%) - 35px);
+    font-size: 3.5rem;
+    font-weight: 600;
+  }
+  /* line 194, styles.scss */
+  .main-section .section-content h5 {
+    top: calc((55%) - 1px);
+  }
+}
+
+/* line 200, styles.scss */
+.about {
+  background: url("") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: 100%;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  color: #343434;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0px 0px 0px 2048px rgba(0, 0, 0, 0.05) inset;
+  overflow: hidden;
+  min-height: 400px;
+  min-height: 100%;
+  height: auto;
+  background: #fff;
+}
+/* line 206, styles.scss */
+.about .section-content h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #343434;
+}
+/* line 211, styles.scss */
+.about .section-content p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  padding: 0 5rem 0 3rem;
+}
+@media screen and (min-width: 769px) {
+  /* line 211, styles.scss */
+  .about .section-content p {
+    padding: 0 10%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* line 211, styles.scss */
+  .about .section-content p {
+    padding: 0 15%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* line 211, styles.scss */
+  .about .section-content p {
+    padding: 0 20%;
+  }
+}
+
+/* line 218, styles.scss */
+.projects {
+  background: url("/images/people-coffee-notes-tea.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: 100%;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  color: #343434;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0px 0px 0px 2048px rgba(255, 255, 255, 0.85) inset;
+  overflow: hidden;
+  min-height: 400px;
+  min-height: 100%;
+  height: auto;
+}
+/* line 223, styles.scss */
+.projects .section-content h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #343434;
+}
+/* line 228, styles.scss */
+.projects .section-content p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  padding: 0 5rem 0 3rem;
+}
+@media screen and (min-width: 769px) {
+  /* line 228, styles.scss */
+  .projects .section-content p {
+    padding: 0 10%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* line 228, styles.scss */
+  .projects .section-content p {
+    padding: 0 15%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* line 228, styles.scss */
+  .projects .section-content p {
+    padding: 0 20%;
+  }
+}
+
+/* line 234, styles.scss */
+.page-footer {
+  background: url("") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: 100%;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  color: #343434;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0px 0px 0px 2048px transparent inset;
+  overflow: hidden;
+  min-height: 400px;
+  height: auto;
+  min-height: 150px;
+  background: #353535;
+  color: #eee;
+  position: relative;
+  padding: 0 5rem 0 3rem;
+}
+@media screen and (min-width: 769px) {
+  /* line 234, styles.scss */
+  .page-footer {
+    padding: 0 10%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* line 234, styles.scss */
+  .page-footer {
+    padding: 0 15%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  /* line 234, styles.scss */
+  .page-footer {
+    padding: 0 20%;
+  }
+}
+/* line 244, styles.scss */
+.page-footer a:link, .page-footer a:visited {
+  color: #07b0ff;
+  text-decoration: none;
+}
+/* line 248, styles.scss */
+.page-footer a:hover, .page-footer a:active {
+  color: #07b0ff;
+  text-decoration: none;
+  border-bottom: dotted 1px rgba(7, 176, 255, 0.5);
+}
+/* line 254, styles.scss */
+.page-footer .section-content {
+  overflow: hidden;
+}
+/* line 255, styles.scss */
+.page-footer .section-content h3 {
+  margin: 1rem 0 0;
+  padding: 0;
+  color: #07b0ff;
+}
+/* line 260, styles.scss */
+.page-footer .section-content h5 {
+  margin: .2rem 0 0;
+  padding: 0;
+  color: #ddd;
+  font-size: 1rem;
+  font-weight: normal;
+}
+/* line 268, styles.scss */
+.page-footer .section-content .left-content {
+  float: none;
+}
+/* line 270, styles.scss */
+.page-footer .section-content .left-content .social-media {
+  margin: 1rem 0;
+  padding: 0;
+}
+/* line 273, styles.scss */
+.page-footer .section-content .left-content .social-media li {
+  float: left;
+  padding: 0;
+  margin-right: 0.8rem;
+}
+/* line 278, styles.scss */
+.page-footer .section-content .left-content .social-media li a:link, .page-footer .section-content .left-content .social-media li a:visited {
+  text-decoration: none;
+}
+/* line 281, styles.scss */
+.page-footer .section-content .left-content .social-media li a:hover, .page-footer .section-content .left-content .social-media li a:active {
+  text-decoration: none;
+}
+/* line 286, styles.scss */
+.page-footer .section-content .left-content .social-media .fa {
+  font-size: 1.6rem;
+}
+/* line 291, styles.scss */
+.page-footer .section-content .right-content {
+  float: none;
+}
+/* line 293, styles.scss */
+.page-footer .section-content .right-content ul li {
+  float: left;
+  margin: 0 1rem;
+}
+@media screen and (min-width: 600px) {
+  /* line 299, styles.scss */
+  .page-footer .section-content .left-content {
+    float: left;
+  }
+  /* line 302, styles.scss */
+  .page-footer .section-content .right-content {
+    float: right;
+  }
+}
+/* line 307, styles.scss */
+.page-footer .copyright-line {
+  position: absolute;
+  bottom: 1rem;
+  left: calc((50%) - 125px);
+}
+
+/* utility styles */
+/* line 315, styles.scss */
+ul li {
+  list-style-type: none;
+}
+
+/* line 319, styles.scss */
+.all-caps {
+  text-transform: uppercase;
+}
+
+/* line 323, styles.scss */
+.muted {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* line 327, styles.scss */
+.smaller {
+  font-size: .9rem;
+}
+
+/* line 331, styles.scss */
+.circle {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: solid 2px #07b0ff;
+  border-radius: 12px;
+  background-color: transparent;
+}
+/* line 339, styles.scss */
+.circle.active {
+  background-color: #07b0ff;
+}
+
+/* line 343, styles.scss */
+.cta-button {
+  background-color: transparent;
+  color: #07b0ff;
+  padding: .6rem 1.2rem;
+  margin: 0;
+  border: solid 2px #07b0ff;
+  font-size: 1.2rem;
+  font-weight: normal;
+  transition: opacity 100ms linear;
+  opacity: .6;
+}
+/* line 354, styles.scss */
+.cta-button:hover {
+  opacity: 1;
+}
+
+/* line 358, styles.scss */
+.hide-on-mobile {
+  display: none;
+}
+@media screen and (min-width: 769px) {
+  /* line 358, styles.scss */
+  .hide-on-mobile {
+    display: inline-block;
+  }
+}
