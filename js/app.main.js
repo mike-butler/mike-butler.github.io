@@ -4,7 +4,11 @@
     
     (app.main = function() {
         //private properties
-        var defaults = {};
+        var defaults = {
+                allSectionsSelector: 'body > section, body > footer',
+                throttleDelay: 200 
+            },
+            isWindowScrolling = false;
         
         var setActivePageNavIndicator = function(sectionName){
             $('.page-nav-indicators li a').each(function(index, element){
@@ -19,15 +23,26 @@
         };
         
         var windowScrolling = function(e) {
-            //console.log('vertical scroll position:' + window.scrollY + ' window.height:' + $('#home').get(0).clientHeight + ' scrollY % win height/2: ' + Math.ceil(window.scrollY % Math.ceil(window.innerHeight / 4)));
-            // trying to throttle the scrolling a bit, so that it only does some work every quarter of the way through the page. 
-            if (Math.ceil(window.scrollY % Math.ceil(window.innerHeight / 2)) < Math.ceil(window.innerHeight / 4)) { 
-                var $section = $('#' + getActivePageElementByNavMenuOffset());
-                $('section.active').removeClass("active");
-                $section.addClass('active');
-                setActivePageNavIndicator($section.data('section'));
-            }    
-        };       
+            //console.log('settings.throttleDelay: ' + e.data.throttleDelay + ' settings.allSectionsSelector: ' + e.data.allSectionsSelector + ' vertical scroll position:' + window.scrollY + ' window.height:' + $('#home').get(0).clientHeight + ' scrollY % win height/2: ' + Math.ceil(window.scrollY % Math.ceil(window.innerHeight / 4)));
+
+            var throttleDelay = typeof (e.data) !== 'undefined' ? e.data.throttleDelay : defaults.throttleDelay,
+                allSectionsSelector = typeof (e.data) !== 'undefined' ? e.data.allSectionsSelector : defaults.allSectionsSelector;
+                
+            if (!isWindowScrolling) {
+                isWindowScrolling = true;
+
+                setTimeout(function(){                    
+                    if (Math.ceil(window.scrollY % Math.ceil(window.innerHeight / 2)) < Math.ceil(window.innerHeight / 2)) { 
+                        var $section = $('#' + getActivePageElementByNavMenuOffset(allSectionsSelector));
+                        //console.log('scrolling timer iteration -- showing section: ' + $section.data('section') + ' vertical scroll position:' + window.scrollY + ' window.height:' + $('#home').get(0).clientHeight + ' scrollY % win height/2: ' + Math.ceil(window.scrollY % Math.ceil(window.innerHeight / 4)));
+                        $('section.active').removeClass("active");
+                        $section.addClass('active');
+                        setActivePageNavIndicator($section.data('section'));
+                    }
+                    isWindowScrolling = false;
+                }, throttleDelay);
+            }
+        };            
                 
         //private methods
         var navigateTo = function(e) {
@@ -50,11 +65,11 @@
             }, 500);  // if we're navigating from the hamburger menu, this gives the menu a chance to close.
         };
         
-        var getActivePageElementByNavMenuOffset = function(){
+        var getActivePageElementByNavMenuOffset = function(allSectionsSelector){
             //navMenuOffset is adjusted with the window.innerHeight / 2 so that as a user scrolls halfway through
             //the page, we will indicate the next/prev page depending on the direction.
             var navMenuOffset = $('.nav-menu').offset().top + Math.ceil(window.innerHeight / 2), 
-                $pageSections = $('body > section, body > footer'),
+                $pageSections = $(allSectionsSelector),
                 sectionNameShowing = 'home';
             
             $pageSections.each(function(i, element){
@@ -64,9 +79,17 @@
                 }
             }); 
             
+            //If user has scrolled within 100px of the bottom, let's mark the last section (i.e. footer)
+            //as the active section. 
+            //if we're unable to get the scrollableHeight, we will not set the bottom navigation dot. 
+            var scrollableHeight = typeof(window.document.documentElement.scrollHeight) !== 'undefined' ? window.document.documentElement.scrollHeight : 0;
+            if ((window.scrollY + window.innerHeight) >= (scrollableHeight - 100)){
+               sectionNameShowing = $pageSections.last().data('section'); 
+            }
+            
             return sectionNameShowing;            
         };
-        
+                
         var toggleNavMenu = function(e){
             if (typeof (e) !== 'undefined') {
                 e.preventDefault();
@@ -120,14 +143,15 @@
                     .removeClass('animating left right');
             });
         };
-        
-        var repositionPageNavIndicators = function(){
-            $('.page-nav-indicators')
-                .css({top: ($('#home').get(0).clientHeight - $('.page-nav-indicator-list').get(0).clientHeight) / 2 })
+ 
+         var repositionPageNavIndicators = function(){
+            var $pageNavHeight = $('.page-nav-indicators');
+            $pageNavHeight
+                .css({top: (window.innerHeight - $pageNavHeight.get(0).clientHeight) / 2 });
         };
-
-        var initPageNavIndicators = function () {
-            var $sections = $('body > section, body > footer'),
+       
+        var initPageNavIndicators = function (allSectionsSelector) {
+            var $sections = $(allSectionsSelector),
                 $indicatorList = $('.page-nav-indicator-list'),
                 $indicatorTemplate = $('.page-nav-indicators .template');
             
@@ -158,7 +182,7 @@
         var registerEvents = function(settings) {
             $('.mobile-menu').on('click', toggleNavMenu);
             $('.menu-list').on('click', 'a', navigateTo);
-            $(window).on('scroll', windowScrolling);
+            $(window).on('scroll', settings, windowScrolling);
             $(window).on('resize', windowResizing);
             $('.page-nav-indicator').on('click', 'a', navigateTo);
             $('.see-my-work').on('click', navigateTo);
@@ -169,7 +193,7 @@
         return {
             init: function(options){
                 var settings = $.extend(defaults, options); // overrides defaults that may already be set
-                initPageNavIndicators();
+                initPageNavIndicators(settings.allSectionsSelector);
                 registerEvents(settings);
             }
         }
